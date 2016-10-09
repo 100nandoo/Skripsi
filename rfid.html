@@ -1,0 +1,14 @@
+<HTML>
+<script src="http://localhost:8000/socket.io/socket.io.js"></script>
+<script>
+var socket = io.connect('http://localhost:8000');
+socket.on('aa', function(data){
+	document.getElementById("getdata").value = data.message;
+});
+</script>
+
+
+<BODY>
+<input type="text" name="name" id="getdata">
+</BODY>
+</HTML>

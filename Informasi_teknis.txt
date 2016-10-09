@@ -1,0 +1,17 @@
+Bootstrap
+==============================================
+http://getbootstrap.com/components/
+http://www.w3schools.com/bootstrap/default.asp
+toggle
+http://www.bootstraptoggle.com/
+material theme
+http://materializecss.com/chips.html
+
+Latar belakang
+
+
+Perumusan mslh
+berupa pertanyaan
+1. Bagaimana
+
+Tujuan
