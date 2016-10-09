@@ -1,0 +1,25 @@
+{
+  "name": "skripsi",
+  "version": "1.0.0",
+  "description": "This is my project for my final thesis. It's a system for monitoring visitor and also control lock door, lights, air conditioner of a laboratorium. This is just a prototype, so I didn't use real air conditioner and lights. Instead I used LED, and relay for simulation.",
+  "main": "serial.js",
+  "dependencies": {
+    "serialport": "^4.0.3",
+    "socket.io": "^1.5.0",
+    "mysql": "^2.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/100nandoo/Skripsi.git"
+  },
+  "author": "Fernando Fransisko Halim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/100nandoo/Skripsi/issues"
+  },
+  "homepage": "https://github.com/100nandoo/Skripsi#readme"
+}
