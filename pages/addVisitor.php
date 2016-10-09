@@ -1,10 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "weblogin";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+require('connect.php');
 
 // Check connection
 if ($conn->connect_error) {
