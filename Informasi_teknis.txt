@@ -9,7 +9,12 @@ http://materializecss.com/chips.html
 
                             Technical Guide
 =====================================================================
-    mySQL
+			mySQL
 ---------------------------------------------------------------------
 * Reset auto increment
   ALTER TABLE table_name AUTO_INCREMENT = value;
+
+			Node.js
+---------------------------------------------------------------------
+* Create package.json
+  npm init
