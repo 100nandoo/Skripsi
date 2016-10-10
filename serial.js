@@ -2,7 +2,7 @@ var app = require('http').createServer(handler);
 var io = require('socket.io').listen(app);
 var serialport = require('serialport'), // include library serial port
 SerialPort = serialport,
-portname = 'COM3'; // untuk masukin nama serial port.
+portname = 'COM3'; // serial port yang digunakan
 var myPort = new SerialPort(portname, {
   baudrate : 9600,
   option : false,
@@ -45,6 +45,6 @@ io.on('connection', function(socket) {
   });
 
   socket.on('disconnect', function(){
-    console.log('user disconnected');
+    console.log('socket io terputus');
   });
 });
