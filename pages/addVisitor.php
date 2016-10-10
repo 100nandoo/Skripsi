@@ -14,7 +14,6 @@ $sql = "INSERT INTO pengunjung (nama, uid) VALUES ('$nama', '$uid')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
-    sleep(2);
     header('Location: dashboard.php#/addVisitorForm');
 
 } else {
@@ -23,3 +22,7 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ?>
+
+<script src="http://localhost:8000/socket.io/socket.io.js">
+  socket.close();
+</script>
