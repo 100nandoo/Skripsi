@@ -20,7 +20,7 @@ labApp.config(function($routeProvider) {
     })
     // route untuk home
     .when('/home', {
-      templateUrl : '../home.php',
+      templateUrl : '../pages/home.php',
       controller  : 'homeController'
     });
 

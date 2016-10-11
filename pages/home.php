@@ -10,7 +10,6 @@
 			<div class="container-fluid">
 				<h1 class="text-center">Home</h1>
 				<a class="btn btn-primary" href="/phpmyadmin" role="button">Phpmyadmin</a>
-				<input type="text" name="name" value="" id="getdata">
 			</div>
 
 		</div>
