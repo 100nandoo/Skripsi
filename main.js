@@ -53,14 +53,29 @@ myPort.on('data', function(data) {
 
     //pengecekan apakah uid ada dalam tabel pengunjung
     if(resl != 0){ //jika ada tulis data
-      var kesql = { uid: [data]};
-      console.log('Data berikut telah ditulis ke sql: ' + data);
-      con_mysql.query('INSERT INTO buku_tamu SET ?', kesql, function(err,res){
-        if(err) throw err;
+      console.log('Pengunjung berikut terdaftar: ' + data);
+
+      //pilih
+      con_mysql.query('SELECT * FROM pengunjung WHERE UID = ?', [data], function(err, stat){
+
+        if(stat[0].status == 0){
+          con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]);
+          con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]);
+        }
+        if(stat[0].status == 1){
+          con_mysql.query('SELECT ke FROM buku_tamu WHERE ke = (SELECT MAX(ke) FROM buku_tamu)',function(err,ke){
+            if(err) throw err;
+            console.log(ke[0].ke);
+            con_mysql.query('UPDATE buku_tamu SET keluar = now() WHERE uid = ? AND ke = ?', [data, ke[0].ke]);
+            con_mysql.query('UPDATE pengunjung SET status = 0 WHERE uid = ?',[data]);
+          });
+        }
       });
+
+
     }
-    else { //jika tidak ada
-      console.log('Tidak ada data yg ditulis ke sql');
+    else { //jika pengunjung tidak ada dalam tabel pengunjung
+      console.log('Pengunjung tidak terdaftar');
     }
   });
 });
