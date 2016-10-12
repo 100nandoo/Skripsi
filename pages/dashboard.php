@@ -22,7 +22,7 @@ if (!isset($_SESSION['username'])) {
   <script src="../js/angular.js"></script>
   <script src="../js/angular-route.js"></script>
   <!-- Angular Script -->
-  <script src="../js/anglr_script.js"></script>
+  <script src="../js/script.js"></script>
 
   <title>Smart Lab</title>
 </head>
