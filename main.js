@@ -55,19 +55,20 @@ myPort.on('data', function(data) {
     if(resl != 0){ //jika ada tulis data
       console.log('Pengunjung berikut terdaftar: ' + data);
 
-      //pilih
+      //cek status
       con_mysql.query('SELECT * FROM pengunjung WHERE UID = ?', [data], function(err, stat){
-
+        //jika pengunjung tidak berada di ruangan, status bernilai 0
         if(stat[0].status == 0){
-          con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]);
-          con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]);
+          con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]); //tulis uid dan waktu masuk
+          con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]); //update nilai status menjadi 1
         }
+        //jika pengunjung berada di ruangan, status bernilai 1
         if(stat[0].status == 1){
-          con_mysql.query('SELECT ke FROM buku_tamu WHERE ke = (SELECT MAX(ke) FROM buku_tamu)',function(err,ke){
+          con_mysql.query('SELECT ke FROM buku_tamu WHERE ke = (SELECT MAX(ke) FROM buku_tamu WHERE uid = ?)', [data], function(err,ke){ //pilih kunjungan terakhir
             if(err) throw err;
-            console.log(ke[0].ke);
-            con_mysql.query('UPDATE buku_tamu SET keluar = now() WHERE uid = ? AND ke = ?', [data, ke[0].ke]);
-            con_mysql.query('UPDATE pengunjung SET status = 0 WHERE uid = ?',[data]);
+            // console.log(ke[0].ke); //tampilkan kunjungan ke ...
+            con_mysql.query('UPDATE buku_tamu SET keluar = now() WHERE uid = ? AND ke = ?', [data, ke[0].ke]); //tulis uid dan waktu keluar
+            con_mysql.query('UPDATE pengunjung SET status = 0 WHERE uid = ?',[data]); //update nilai status menjadi 0
           });
         }
       });
