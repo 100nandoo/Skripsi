@@ -61,6 +61,7 @@ myPort.on('data', function(data) {
         if(stat[0].status == 0){
           con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]); //tulis uid dan waktu masuk
           con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]); //update nilai status menjadi 1
+          console.log('Pengunjung berikut masuk: ' + data);
         }
         //jika pengunjung berada di ruangan, status bernilai 1
         if(stat[0].status == 1){
@@ -69,6 +70,7 @@ myPort.on('data', function(data) {
             // console.log(ke[0].ke); //tampilkan kunjungan ke ...
             con_mysql.query('UPDATE buku_tamu SET keluar = now() WHERE uid = ? AND ke = ?', [data, ke[0].ke]); //tulis uid dan waktu keluar
             con_mysql.query('UPDATE pengunjung SET status = 0 WHERE uid = ?',[data]); //update nilai status menjadi 0
+            console.log('Pengunjung berikut keluar: ' + data);
           });
         }
       });
