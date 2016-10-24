@@ -1,8 +1,75 @@
-<div class="jumbotron text-center">
-	<h1>RTC Page</h1>
-  	<p>{{ message }}</p>
-		<p>
-			hello
-		</p>
+<script>
+var socket = io.connect('http://localhost:8000');
 
-</div>
+$('#ledSet1').on('click',function(){
+	socket.emit('led1');
+});
+$('#ledSet2').on('click',function(){
+	socket.emit('led2');
+});
+$('#ledSet3').on('click',function(){
+	socket.emit('led3');
+});
+$('#ledSet4').on('click',function(){
+	socket.emit('led4');
+});
+$('#ledSet5').on('click',function(){
+	socket.emit('led5');
+});
+$('#ledSet6').on('click',function(){
+	socket.emit('led6');
+});
+
+$('#ledSet12').on('click',function(){
+	socket.emit('led12');
+});
+$('#ledSet34').on('click',function(){
+	socket.emit('led34');
+});
+$('#ledSet56').on('click',function(){
+	socket.emit('led56');
+});
+$('#ledSetAll').on('click',function(){
+	socket.emit('ledAll');
+});
+</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="../js/jquery-3.1.1.js"></script>
+	<script src="http://localhost:8000/socket.io/socket.io.js"></script>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<h1 class="text-center">Real Time Controller</h1>
+		<div class="col-sm-6">
+			<p>
+				<div class="btn-group" role="group" aria-label="tes">
+					<button id="ledSet1" type="button" class="btn btn-primary" autocomplete="off">LED 1</button>
+					<button id="ledSet2" type="button" class="btn btn-primary" autocomplete="off">LED 2</button>
+					<button id="ledSet12" type="button" class="btn btn-warning" autocomplete="off">Baris 1</button>
+				</div>
+				<div class="btn-group" role="group" aria-label="tes">
+					<button id="ledSet3" type="button" class="btn btn-primary" autocomplete="off">LED 3</button>
+					<button id="ledSet4" type="button" class="btn btn-primary" autocomplete="off">LED 4</button>
+					<button id="ledSet34" type="button" class="btn btn-warning" autocomplete="off">Baris 2</button>
+				</div>
+				<div class="btn-group" role="group" aria-label="tes">
+					<button id="ledSet5" type="button" class="btn btn-primary" autocomplete="off">LED 5</button>
+					<button id="ledSet6" type="button" class="btn btn-primary" autocomplete="off">LED 6</button>
+					<button id="ledSet56" type="button" class="btn btn-warning" autocomplete="off">Baris 3</button>
+				</div>
+			</p>
+			<p>
+			</p>
+			<button id="ledSetAll" type="button" class="btn btn-success btn-block" autocomplete="off">Semua LED</button>
+
+		</div>
+
+	</div>
+</body>
+</html>

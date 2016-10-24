@@ -2,7 +2,25 @@
 var app = require('http').createServer(handler);
 var io = require('socket.io').listen(app);
 var mysql = require('mysql');
+var led1,led2,led3,led4,led5,led6;
+var five = require("johnny-five");
+var board = new five.Board({
+  port:"COM3"
+});
 
+//johnny-five
+board.on("ready", function() {
+  console.log("Ready!");
+
+  led1 = new five.Led(2);
+  led2 = new five.Led(3);
+  led3 = new five.Led(4);
+  led4 = new five.Led(5);
+  led5 = new five.Led(6);
+  led6 = new five.Led(7);
+});
+
+//hubung ke sql
 var con_mysql = mysql.createConnection({
   host    : 'localhost',
   user    : 'root',
@@ -18,9 +36,10 @@ con_mysql.connect(function(err){
   console.log('Terhubung ke sql.');
 });
 
+//inisiasi serialport
 var serialport = require('serialport'),
 SerialPort = serialport,
-portname = 'COM3'; // serial port yang digunakan
+portname = 'COM4'; // serial port yang digunakan
 var myPort = new SerialPort(portname, {
   baudrate : 9600,
   option : false,
@@ -28,7 +47,7 @@ var myPort = new SerialPort(portname, {
 });
 app.listen(8000);
 
-
+//http hander untuk server side
 function handler(req,res) {
   path = req.url == "/" ? "./index.html" : "." + req.url;
   fs.readFile(path,
@@ -82,9 +101,12 @@ myPort.on('data', function(data) {
     }
   });
 });
-
+var brightness = 90;
 myPort.on('open', function() {
   console.log('Serial port terbuka.');
+  var buf = new Buffer(1);
+  buf.writeUInt8(brightness, 0);
+  myPort.write(buf);
 });
 
 myPort.on('close', function() {
@@ -106,5 +128,55 @@ io.on('connection', function(socket) {
 
   socket.on('disconnect', function(){
     console.log('socket io terputus');
+  });
+
+  //ketika socket io menerima string, lalu menyalakan led
+  socket.on('led1', function () {
+    console.log("toggle LED1");
+    if(board.isReady){    led1.toggle(); }
+  });
+  socket.on('led2', function () {
+    console.log("toggle LED2");
+    if(board.isReady){    led2.toggle(); }
+  });
+  socket.on('led3', function () {
+    console.log("toggle LED3");
+    if(board.isReady){    led3.toggle(); }
+  });
+  socket.on('led4', function () {
+    console.log("toggle LED4");
+    if(board.isReady){    led4.toggle(); }
+  });
+  socket.on('led5', function () {
+    console.log("toggle LED5");
+    if(board.isReady){    led5.toggle(); }
+  });
+  socket.on('led6', function () {
+    console.log("toggle LED6");
+    if(board.isReady){    led6.toggle(); }
+  });
+  socket.on('led12', function () {
+    console.log("toggle Baris 1");
+    if(board.isReady){    led1.toggle(); }
+    if(board.isReady){    led2.toggle(); }
+  });
+  socket.on('led34', function () {
+    console.log("toggle Baris 2");
+    if(board.isReady){    led3.toggle(); }
+    if(board.isReady){    led4.toggle(); }
+  });
+  socket.on('led56', function () {
+    console.log("toggle Baris 3");
+    if(board.isReady){    led5.toggle(); }
+    if(board.isReady){    led6.toggle(); }
+  });
+  socket.on('ledAll', function () {
+    console.log("toggle Semua LED");
+    if(board.isReady){    led1.toggle(); }
+    if(board.isReady){    led2.toggle(); }
+    if(board.isReady){    led3.toggle(); }
+    if(board.isReady){    led4.toggle(); }
+    if(board.isReady){    led5.toggle(); }
+    if(board.isReady){    led6.toggle(); }
   });
 });
