@@ -70,7 +70,9 @@ $('#ledSetAll').on('click',function(){
 			</p>
 			<div class="btn-group btn-block" role="group" aria-label="tes">
 				<button id="bukaPintu" type="button" class="btn btn-info col-sm-6" autocomplete="off">Pintu</button>
-				<button id="nyalaAc" type="button" class="btn btn-default col-sm-6" autocomplete="off">AC</button>
+				<button id="nyalaAc1" type="button" class="btn btn-default col-sm-3" autocomplete="off">AC 1</button>
+				<button id="nyalaAc2" type="button" class="btn btn-default col-sm-3" autocomplete="off">AC 2</button>
+
 			</div>
 
 		</div>

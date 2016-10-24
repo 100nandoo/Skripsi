@@ -5,7 +5,7 @@ var mysql = require('mysql');
 var led1,led2,led3,led4,led5,led6;
 var five = require("johnny-five");
 var board = new five.Board({
-  port:"COM3"
+  port:process.argv[2]
 });
 
 //johnny-five
@@ -39,7 +39,7 @@ con_mysql.connect(function(err){
 //inisiasi serialport
 var serialport = require('serialport'),
 SerialPort = serialport,
-portname = 'COM4'; // serial port yang digunakan
+portname = process.argv[3]; // serial port yang digunakan
 var myPort = new SerialPort(portname, {
   baudrate : 9600,
   option : false,
