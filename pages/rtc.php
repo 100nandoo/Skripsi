@@ -45,31 +45,39 @@ $('#ledSetAll').on('click',function(){
 </head>
 <body>
 	<div class="container-fluid">
-		<h1 class="text-center">Real Time Controller</h1>
-		<div class="col-sm-6">
+		<h1 class="text-center">Tools</h1><hr>
+		<div class="container-fluid col-sm-6" style="background-color:#f5f5f5;">
+			<h3 class="text-center">Real Time Controller</h3><hr>
 			<p>
-				<div class="btn-group" role="group" aria-label="tes">
+				<div class="btn-group" role="group" aria-label="baris1">
 					<button id="ledSet1" type="button" class="btn btn-primary" autocomplete="off">LED 1</button>
 					<button id="ledSet2" type="button" class="btn btn-primary" autocomplete="off">LED 2</button>
 					<button id="ledSet12" type="button" class="btn btn-warning" autocomplete="off">Baris 1</button>
 				</div>
-				<div class="btn-group" role="group" aria-label="tes">
+				<div class="btn-group" role="group" aria-label="baris2">
 					<button id="ledSet3" type="button" class="btn btn-primary" autocomplete="off">LED 3</button>
 					<button id="ledSet4" type="button" class="btn btn-primary" autocomplete="off">LED 4</button>
 					<button id="ledSet34" type="button" class="btn btn-warning" autocomplete="off">Baris 2</button>
 				</div>
-				<div class="btn-group" role="group" aria-label="tes">
+				<div class="btn-group" role="group" aria-label="baris3">
 					<button id="ledSet5" type="button" class="btn btn-primary" autocomplete="off">LED 5</button>
 					<button id="ledSet6" type="button" class="btn btn-primary" autocomplete="off">LED 6</button>
 					<button id="ledSet56" type="button" class="btn btn-warning" autocomplete="off">Baris 3</button>
 				</div>
 			</p>
 			<p>
+				<button id="ledSetAll" type="button" class="btn btn-success btn-block" autocomplete="off">Semua LED</button>
 			</p>
-			<button id="ledSetAll" type="button" class="btn btn-success btn-block" autocomplete="off">Semua LED</button>
+			<div class="btn-group btn-block" role="group" aria-label="tes">
+				<button id="bukaPintu" type="button" class="btn btn-info col-sm-6" autocomplete="off">Pintu</button>
+				<button id="nyalaAc" type="button" class="btn btn-default col-sm-6" autocomplete="off">AC</button>
+			</div>
 
 		</div>
-
+		<div class="container-fluid col-sm-5 col-md-offset-1" style="background-color:#f5f5f5; padding:10px;">
+			<h3 class="text-center">Lain - lain</h3><hr>
+			<a class="btn btn-primary" href="/phpmyadmin" role="button">Phpmyadmin</a>
+		</div>
 	</div>
 </body>
 </html>

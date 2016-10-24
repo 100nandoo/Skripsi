@@ -37,7 +37,7 @@ if (!isset($_SESSION['username'])) {
       <!-- NavBar Tengah -->
       <ul class="nav navbar-nav">
         <li><a href="#home"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-        <li><a href="#rtc"><span class="glyphicon glyphicon-cog"></span> RTC</a></li>
+        <li><a href="#rtc"><span class="glyphicon glyphicon-cog"></span> Tools</a></li>
         <li><a href="#data"><span class="glyphicon glyphicon-list-alt"></span> Data Pengunjung</a></li>
       </ul>
       <!-- NavBar Kanan -->
