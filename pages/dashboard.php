@@ -16,7 +16,7 @@ if (!isset($_SESSION['username'])) {
   <link rel="stylesheet" href="../css/bootstrap.css" />
   <!-- include Font Awesome -->
   <link rel="stylesheet" href="../css/font-awesome.css" />
-  <!-- Include Javascript -->
+  <!-- Include Javascript library-->
   <script src="../js/jquery-3.1.1.js"></script>
   <script src="../js/bootstrap.js"></script>
   <script src="../js/angular.js"></script>
