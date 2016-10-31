@@ -18,3 +18,11 @@ http://materializecss.com/chips.html
 ---------------------------------------------------------------------
 * Create package.json
   npm init
+
+* cara jalan main.js
+  node main.js "dcduino port" "arduino port"
+=====================================================================
+                              INFO
+=====================================================================
+Dcduino isi johnny-five
+Arduino isi serialport
