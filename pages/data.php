@@ -22,7 +22,7 @@ $(document).ready(function() {
 } );
 </script>
 
-<div class="col-sm-4 container">
+<div class="col-sm-5 container">
   <h3 class="text-center">Pengunjung yang Terdaftar</h3>
 
   <table id="pengunjung" class="table table-striped table-bordered table-hover">
@@ -41,7 +41,7 @@ $(document).ready(function() {
     </table>
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-5">
     <h3 class="text-center">Buku Tamu</h3>
     <table id="buku"class="table table-striped table-bordered table-hover">
       <thead>
