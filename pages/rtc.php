@@ -32,6 +32,15 @@ $('#ledSet56').on('click',function(){
 $('#ledSetAll').on('click',function(){
 	socket.emit('ledAll');
 });
+$('#bukaPintu').on('click',function(){
+	socket.emit('sol');
+});
+$('#nyalaAc1').on('click',function(){
+	socket.emit('AC1');
+});
+$('#nyalaAc2').on('click',function(){
+	socket.emit('AC2');
+});
 </script>
 
 <!DOCTYPE html>

@@ -20,9 +20,9 @@ http://materializecss.com/chips.html
   npm init
 
 * cara jalan main.js
-  node main.js "dcduino port" "arduino port"
+  node main.js "Arduino port" "Dcduino port"
 =====================================================================
                               INFO
 =====================================================================
-Dcduino isi johnny-five
-Arduino isi serialport
+Arduino isi johnny-five
+Dcduino isi serialport

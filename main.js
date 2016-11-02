@@ -2,7 +2,7 @@
 var app = require('http').createServer(handler);
 var io = require('socket.io').listen(app);
 var mysql = require('mysql');
-var led1,led2,led3,led4,led5,led6;
+var led1,led2,led3,led4,led5,led6,sol;
 var five = require("johnny-five");
 var board = new five.Board({
   port:process.argv[2]
@@ -18,6 +18,9 @@ board.on("ready", function() {
   led4 = new five.Led(5);
   led5 = new five.Led(6);
   led6 = new five.Led(7);
+  sol = new five.Relay(9);
+  ac1 = new five.Relay(10);
+  ac2 = new five.Relay(11);
 });
 
 //hubung ke sql
@@ -178,5 +181,17 @@ io.on('connection', function(socket) {
     if(board.isReady){    led4.toggle(); }
     if(board.isReady){    led5.toggle(); }
     if(board.isReady){    led6.toggle(); }
+  });
+  socket.on('sol', function () {
+    console.log("toggle Solenoid");
+    if(board.isReady){    sol.toggle(); }
+  });
+  socket.on('AC1', function () {
+    console.log("toggle AC1");
+    if(board.isReady){    ac1.toggle(); }
+  });
+  socket.on('AC2', function () {
+    console.log("toggle AC2");
+    if(board.isReady){    ac2.toggle(); }
   });
 });
