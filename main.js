@@ -13,6 +13,7 @@ var JamSkrg;
 new CronJob('*/10 * * * * *', function() {
   JamSkrg = new Date().getHours();
   console.log("                                                        Sekarang jam: " + JamSkrg);
+
 }, null, true);
 
 //johnny-five
@@ -100,6 +101,15 @@ myPort.on('data', function(data) {
               console.log("tutup pintu");
               if(board.isReady){    sol.off(); }
             }, 5000);                              //==========
+            if(board.isReady){
+              led1.on();
+              led2.on();
+              led3.on();
+              led4.on();
+              led5.on();
+              led6.on();
+              ac1.on();
+            }
 
           }
           if(JamSkrg >= 7 && JamSkrg < 16){ //Cek jam operasional
@@ -133,7 +143,22 @@ myPort.on('data', function(data) {
               console.log("tutup pintu");
               if(board.isReady){    sol.off(); }
             }, 5000);                              //==========
+            con_mysql.query('SELECT jumlah FROM kondisi_lab', function(err,jum){
+              console.log(jum[0].jumlah);
 
+              if(jum[0].jumlah == 0){
+                if(board.isReady){
+                  led1.off();
+                  led2.off();
+                  led3.off();
+                  led4.off();
+                  led5.off();
+                  led6.off();
+                  ac1.off();
+                  ac2.off();
+                }
+              }
+            });
 
           });
         }
