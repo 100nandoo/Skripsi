@@ -2,11 +2,18 @@
 var app = require('http').createServer(handler);
 var io = require('socket.io').listen(app);
 var mysql = require('mysql');
+var CronJob = require('cron').CronJob;
 var led1,led2,led3,led4,led5,led6,sol;
 var five = require("johnny-five");
 var board = new five.Board({
   port:process.argv[2]
 });
+var JamSkrg;
+//Update Waktu sekarang
+new CronJob('* * * * * *', function() {
+	JamSkrg = new Date().getHours();
+	console.log("Sekarang jam: " + JamSkrg);
+}, null, true);
 
 //johnny-five
 board.on("ready", function() {
@@ -81,9 +88,24 @@ myPort.on('data', function(data) {
       con_mysql.query('SELECT * FROM pengunjung WHERE UID = ?', [data], function(err, stat){
         //jika pengunjung tidak berada di ruangan, status bernilai 0
         if(stat[0].status == 0){
-          con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]); //tulis uid dan waktu masuk
-          con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]); //update nilai status menjadi 1
-          console.log('Pengunjung berikut masuk: ' + data);
+
+          if(JamSkrg >= 7 && JamSkrg < 16){ //Cek jam operasional
+            console.log("jam operasional.");
+            console.log("jam di if: " + JamSkrg);
+            con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]); //tulis uid dan waktu masuk
+            con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]); //update nilai status menjadi 1
+            console.log('Pengunjung berikut masuk: ' + data);
+            if(board.isReady){    sol.on(); }      //Buka tutup pintu
+            console.log("buka pintu");
+            setTimeout(function() {
+              console.log("tutup pintu");
+              if(board.isReady){    sol.off(); }
+            }, 5000);                              //==========
+          }
+          else{
+            console.log("Bukan jam operasional.")
+          }
+
         }
         //jika pengunjung berada di ruangan, status bernilai 1
         if(stat[0].status == 1){
@@ -93,6 +115,11 @@ myPort.on('data', function(data) {
             con_mysql.query('UPDATE buku_tamu SET keluar = now() WHERE uid = ? AND ke = ?', [data, ke[0].ke]); //tulis uid dan waktu keluar
             con_mysql.query('UPDATE pengunjung SET status = 0 WHERE uid = ?',[data]); //update nilai status menjadi 0
             console.log('Pengunjung berikut keluar: ' + data);
+            if(board.isReady){    sol.on(); }      //Buka tutup pintu
+            setTimeout(function() {
+              console.log("tutup pintu");
+              if(board.isReady){    sol.off(); }
+            }, 5000);                              //==========
           });
         }
       });
