@@ -104,12 +104,8 @@ myPort.on('data', function(data) {
     }
   });
 });
-var brightness = 90;
 myPort.on('open', function() {
   console.log('Serial port terbuka.');
-  var buf = new Buffer(1);
-  buf.writeUInt8(brightness, 0);
-  myPort.write(buf);
 });
 
 myPort.on('close', function() {
