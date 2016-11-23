@@ -12,12 +12,12 @@ var JamSkrg;
 //Update Waktu sekarang
 new CronJob('*/10 * * * * *', function() {
   JamSkrg = new Date().getHours();
-  console.log("Sekarang jam: " + JamSkrg);
+  console.log("                                                        Sekarang jam: " + JamSkrg);
 }, null, true);
 
 //johnny-five
 board.on("ready", function() {
-  console.log("Ready!");
+  console.log("Berhasil terhubung ke Arduino yang berisi Firmata!");
 
   led1 = new five.Led(2);
   led2 = new five.Led(3);
@@ -40,10 +40,10 @@ var con_mysql = mysql.createConnection({
 
 con_mysql.connect(function(err){
   if(err){
-    console.log('Error koneksi ke sql.');
+    console.log('Koneksi ke Database gagal!.');
     return;
   }
-  console.log('Terhubung ke sql.');
+  console.log('Koneksi ke Database berhasil!');
 });
 
 //inisiasi serialport
@@ -115,7 +115,8 @@ myPort.on('data', function(data) {
             }, 5000);                              //==========
           }
           else{
-            console.log("Bukan jam operasional.")
+            console.log("Bukan jam operasional. Mahasiswa dilarang masuk!");
+            console.log("================================================");
           }
         }
         //jika pengunjung berada di ruangan, status bernilai 1
@@ -145,12 +146,13 @@ myPort.on('data', function(data) {
     }
   });
 });
+
 myPort.on('open', function() {
-  console.log('Serial port terbuka.');
+  console.log('Terhubung ke serial port.');
 });
 
 myPort.on('close', function() {
-  console.log ('Serial port tertutup.');
+  console.log ('Terputus dari Serial port.');
 });
 
 myPort.on('error', function(){
@@ -160,14 +162,14 @@ myPort.on('error', function(){
 
 // event ketika socket io terhubung
 io.on('connection', function(socket) {
-  console.log("socket io terhubung");
+  console.log("Terhubung ke halaman web!");
   myPort.on('data', function(data){
     socket.emit('EventKirim',{message:data});
     console.log('data yg dikirim ke php: ' + data);
   });
 
   socket.on('disconnect', function(){
-    console.log('socket io terputus');
+    console.log('Terputus dari halaman web!');
   });
 
   //ketika socket io menerima string, lalu menyalakan led
