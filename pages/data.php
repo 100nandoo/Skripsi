@@ -11,6 +11,7 @@ require('connect.php');
 
 $peng = mysqli_query($conn,"SELECT * FROM pengunjung");
 $buku = mysqli_query($conn,"SELECT * FROM buku_tamu");
+$kondisi_lab = mysqli_query($conn,"SELECT jumlah FROM kondisi_lab");
 $all_property = array();
 ?>
 
@@ -29,16 +30,22 @@ $(document).ready(function() {
     <thead>
       <th>nama</th>
       <th>uid</th>
+      <th>privilege</th>
     </thead>
     <tbody>
       <?php while($row = mysqli_fetch_array($peng)) { ?>
         <tr>
           <td><?php echo $row['nama']; ?></td>
           <td><?php echo $row['uid']; ?></td>
+          <td><?php echo $row['privilege']; ?></td>
         </tr>
         <?php } ?>
       </tbody>
     </table>
+
+
+    <?php $row = mysqli_fetch_array($kondisi_lab) ?>
+    <h4>Jumlah pengunjung: <?php echo $row['jumlah'] ?></h4>
   </div>
 
   <div class="col-sm-5">
