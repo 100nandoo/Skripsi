@@ -26,6 +26,9 @@ labApp.config(function($routeProvider) {
   })
   .when('/tutor2', {
     templateUrl : '../pages/tutor2.html',
+  })
+  .when('/tutor3', {
+    templateUrl : '../pages/tutor3.html',
   });
 });
 

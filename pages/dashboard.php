@@ -45,6 +45,7 @@ if (!isset($_SESSION['username'])) {
           <ul class="dropdown-menu" role="menu">
             <li><a href="#tutor1"><span class="glyphicon glyphicon-user"></span> Menambah Pengunjung Baru</a></li>
             <li><a href="#tutor2"><span class="glyphicon glyphicon-cog"></span> Mengendalikan Perangkat Kelistrikan</a></li>
+            <li><a href="#tutor3"><span class="glyphicon glyphicon-list-alt"></span> Melihat Data Pengunjung</a></li>
             <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
           </ul>
         </li>
