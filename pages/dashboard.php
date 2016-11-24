@@ -28,7 +28,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body ng-controller="mainController">
   <!-- NavBar -->
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Header -->
       <div class="navbar-header">
