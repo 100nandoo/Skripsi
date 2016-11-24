@@ -28,7 +28,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body ng-controller="mainController">
   <!-- NavBar -->
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Header -->
       <div class="navbar-header">
@@ -36,8 +36,8 @@ if (!isset($_SESSION['username'])) {
       </div>
       <!-- NavBar Tengah -->
       <ul class="nav navbar-nav">
-        <li><a href="#home"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-        <li><a href="#rtc"><span class="glyphicon glyphicon-cog"></span> Tools</a></li>
+        <li><a href="#home"><i class="glyphicon glyphicon-home"></i> Depan</a></li>
+        <li><a href="#rtc"><span class="glyphicon glyphicon-cog"></span> Peralatan</a></li>
         <li><a href="#data"><span class="glyphicon glyphicon-list-alt"></span> Data Pengunjung</a></li>
         <!-- Tutorial -->
           <li class="dropdown">
@@ -51,9 +51,9 @@ if (!isset($_SESSION['username'])) {
       <!-- NavBar Kanan -->
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="" class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">Akun <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#addVisitor"><span class="glyphicon glyphicon-user"></span> Add Visitor</a></li>
+            <li><a href="#addVisitor"><span class="glyphicon glyphicon-user"></span> Tambah Pengunjung</a></li>
             <li class="divider"></li>
             <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
           </ul>

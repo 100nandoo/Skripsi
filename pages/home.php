@@ -7,7 +7,7 @@
   </head>
   <body>
 			<div class="container-fluid">
-				<h1 class="text-center">Home</h1>
+				<h1 class="text-center">Depan</h1>
 			</div>
 
   </body>

@@ -54,7 +54,7 @@ $('#nyalaAc2').on('click',function(){
 </head>
 <body>
 	<div class="container-fluid">
-		<h1 class="text-center">Tools</h1><hr>
+		<h1 class="text-center">Peralatan</h1><hr>
 		<div class="container-fluid col-sm-6" style="background-color:#f5f5f5;">
 			<h3 class="text-center">Real Time Controller</h3><hr>
 			<p>
