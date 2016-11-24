@@ -40,13 +40,14 @@ if (!isset($_SESSION['username'])) {
         <li><a href="#rtc"><span class="glyphicon glyphicon-cog"></span> Peralatan</a></li>
         <li><a href="#data"><span class="glyphicon glyphicon-list-alt"></span> Data Pengunjung</a></li>
         <!-- Tutorial -->
-          <li class="dropdown">
-            <a href="" class="dropdown-toggle glyphicon glyphicon-edit" data-toggle="dropdown"> Bagaimana cara <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#tutor1"><span class="glyphicon glyphicon-user"></span> Menambah Pengunjung Baru</a></li>
-              <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-            </ul>
-          </li>
+        <li class="dropdown">
+          <a href="" class="dropdown-toggle glyphicon glyphicon-edit" data-toggle="dropdown"> Bagaimana cara <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#tutor1"><span class="glyphicon glyphicon-user"></span> Menambah Pengunjung Baru</a></li>
+            <li><a href="#tutor2"><span class="glyphicon glyphicon-cog"></span> Mengendalikan Perangkat Kelistrikan</a></li>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+          </ul>
+        </li>
       </ul>
       <!-- NavBar Kanan -->
       <ul class="nav navbar-nav navbar-right">
@@ -58,7 +59,7 @@ if (!isset($_SESSION['username'])) {
             <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
           </ul>
         </li>
-        </ul>
+      </ul>
     </div>
   </nav>
   <div id="main">
