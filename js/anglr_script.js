@@ -22,8 +22,12 @@ labApp.config(function($routeProvider) {
     .when('/home', {
       templateUrl : '../pages/home.php',
       controller  : 'homeController'
+    })
+    // route untuk rtc
+    .when('/tutor1', {
+      templateUrl : '../pages/tutor1.php',
+      controller  : 'tutor1Controller'
     });
-
 });
 
 // create the controller and inject Angular's $scope
@@ -42,4 +46,8 @@ labApp.controller('homeController', function($scope) {
 labApp.controller('addController', function($scope) {
   // create a message to display in our view
   $scope.message = 'This is user!';
+});
+labApp.controller('tutor1Controller', function($scope) {
+  // create a message to display in our view
+  $scope.message = 'This is tutor1!';
 });
