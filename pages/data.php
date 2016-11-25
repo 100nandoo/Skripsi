@@ -22,9 +22,9 @@ $(document).ready(function() {
   $('#buku').DataTable();
 } );
 </script>
-
+<!--Kolom kiri  -->
 <div class="col-sm-5 container">
-  <h3 class="text-center">Pengunjung yang Terdaftar</h3>
+  <h3 class="text-center">Pengunjung yang Terdaftar</h3><hr>
 
   <table id="pengunjung" class="table table-striped table-bordered table-hover">
     <thead>
@@ -46,10 +46,20 @@ $(document).ready(function() {
 
     <?php $row = mysqli_fetch_array($kondisi_lab) ?>
     <h4>Jumlah pengunjung: <?php echo $row['jumlah'] ?></h4>
+    <br>
+    <form action="delVisitor.php" class="form-signin" method="post">
+      <h3 class="form-signin-heading text-center">Hapus Pengunjung Terdaftar</h3><hr>
+      <div class="col-sm-8">
+        <input type="text" name="nama" id="nama" class="form-control form-group" placeholder="username" required autofocus>
+      </div>
+      <div class="col-sm-4">
+        <button class="btn btn-lg btn-danger btn-block btn-sm" type="submit">Delete</button>
+      </div>
+    </form>
   </div>
-
+<!-- Kolom Kanan -->
   <div class="col-sm-5">
-    <h3 class="text-center">Buku Tamu</h3>
+    <h3 class="text-center">Buku Tamu</h3><hr>
     <table id="buku"class="table table-striped table-bordered table-hover">
       <thead>
         <th>uid</th>
