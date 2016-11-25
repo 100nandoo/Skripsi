@@ -75,12 +75,12 @@ $('#nyalaAc2').on('click',function(){
 				</div>
 			</p>
 			<p>
-				<button id="ledSetAll" type="button" class="btn btn-success btn-block" autocomplete="off">Semua LED</button>
+				<button id="ledSetAll" type="button" class="btn btn-success btn-block btn-lg" autocomplete="off">Semua LED</button>
 			</p>
 			<div class="btn-group btn-block" role="group" aria-label="tes">
-				<button id="bukaPintu" type="button" class="btn btn-info col-sm-6" autocomplete="off">Pintu</button>
-				<button id="nyalaAc1" type="button" class="btn btn-default col-sm-3" autocomplete="off">AC 1</button>
-				<button id="nyalaAc2" type="button" class="btn btn-default col-sm-3" autocomplete="off">AC 2</button>
+				<button id="bukaPintu" type="button" class="btn btn-info col-sm-6 btn-lg" autocomplete="off">Pintu</button>
+				<button id="nyalaAc1" type="button" class="btn btn-default col-sm-3 btn-lg" autocomplete="off">AC 1</button>
+				<button id="nyalaAc2" type="button" class="btn btn-default col-sm-3 btn-lg" autocomplete="off">AC 2</button>
 
 			</div>
 
