@@ -92,7 +92,7 @@ myPort.on('data', function(data) {
           if(stat[0].privilege == 3 || stat[0].privilege == 2){
             con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]); //tulis uid dan waktu masuk
             con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]); //update nilai status menjadi 1
-            con_mysql.query('UPDATE kondisi_lab SET jumlah = jumlah + 1'); // update nilai jumlah pengunjung +1
+            con_mysql.query('UPDATE jumlah_pengunjung SET jumlah = jumlah + 1'); // update nilai jumlah pengunjung +1
             console.log('Pengunjung berikut masuk: ' + data);
 
             if(board.isReady){    sol.on(); }      //Buka tutup pintu
@@ -136,14 +136,14 @@ myPort.on('data', function(data) {
             // console.log(ke[0].ke); //tampilkan kunjungan ke ...
             con_mysql.query('UPDATE buku_tamu SET keluar = now() WHERE uid = ? AND ke = ?', [data, ke[0].ke]); //tulis uid dan waktu keluar
             con_mysql.query('UPDATE pengunjung SET status = 0 WHERE uid = ?',[data]); //update nilai status menjadi 0
-            con_mysql.query('UPDATE kondisi_lab SET jumlah = jumlah - 1'); // update nilai jumlah pengunjung -1
+            con_mysql.query('UPDATE jumlah_pengunjung SET jumlah = jumlah - 1'); // update nilai jumlah pengunjung -1
             console.log('Pengunjung berikut keluar: ' + data);
             if(board.isReady){    sol.on(); }      //Buka tutup pintu
             setTimeout(function() {
               console.log("tutup pintu");
               if(board.isReady){    sol.off(); }
             }, 5000);                              //==========
-            con_mysql.query('SELECT jumlah FROM kondisi_lab', function(err,jum){
+            con_mysql.query('SELECT jumlah FROM jumlah_pengunjung', function(err,jum){
               console.log(jum[0].jumlah);
 
               if(jum[0].jumlah == 0){
