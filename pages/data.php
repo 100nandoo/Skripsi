@@ -11,7 +11,7 @@ require('connect.php');
 
 $peng = mysqli_query($conn,"SELECT * FROM pengunjung");
 $buku = mysqli_query($conn,"SELECT * FROM buku_tamu");
-$kondisi_lab = mysqli_query($conn,"SELECT jumlah FROM kondisi_lab");
+$jumlah_pengunjung = mysqli_query($conn,"SELECT jumlah FROM jumlah_pengunjung");
 $all_property = array();
 ?>
 
@@ -23,7 +23,7 @@ $(document).ready(function() {
 } );
 </script>
 <!--Kolom kiri  -->
-<div class="col-sm-5 container">
+<div class="col-sm-6 container">
   <h3 class="text-center">Pengunjung yang Terdaftar</h3><hr>
 
   <table id="pengunjung" class="table table-striped table-bordered table-hover">
@@ -44,7 +44,7 @@ $(document).ready(function() {
     </table>
 
 
-    <?php $row = mysqli_fetch_array($kondisi_lab) ?>
+    <?php $row = mysqli_fetch_array($jumlah_pengunjung) ?>
     <h4>Jumlah pengunjung: <?php echo $row['jumlah'] ?></h4>
     <br>
     <form action="delVisitor.php" class="form-signin" method="post">
@@ -57,8 +57,8 @@ $(document).ready(function() {
       </div>
     </form>
   </div>
-<!-- Kolom Kanan -->
-  <div class="col-sm-5">
+  <!-- Kolom Kanan -->
+  <div class="col-sm-6">
     <h3 class="text-center">Buku Tamu</h3><hr>
     <table id="buku"class="table table-striped table-bordered table-hover">
       <thead>
