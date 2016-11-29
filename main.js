@@ -58,7 +58,7 @@ var myPort = new SerialPort(portname, {
 });
 app.listen(8000);
 
-//http hander untuk server side
+//http handler untuk server side
 function handler(req,res) {
   path = req.url == "/" ? "./index.html" : "." + req.url;
   fs.readFile(path,
@@ -93,6 +93,7 @@ myPort.on('data', function(data) {
             con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]); //tulis uid dan waktu masuk
             con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]); //update nilai status menjadi 1
             con_mysql.query('UPDATE jumlah_pengunjung SET jumlah = jumlah + 1'); // update nilai jumlah pengunjung +1
+            console.log("Tambah pengunjung satu");
             console.log('Pengunjung berikut masuk: ' + data);
 
             if(board.isReady){    sol.on(); }      //Buka tutup pintu
@@ -112,10 +113,12 @@ myPort.on('data', function(data) {
             }
 
           }
-          if(JamSkrg >= 7 && JamSkrg < 16){ //Cek jam operasional
+          else if(JamSkrg >= 7 && JamSkrg < 16){ //Cek jam operasional
             console.log("jam operasional.");
             con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]); //tulis uid dan waktu masuk
             con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]); //update nilai status menjadi 1
+            con_mysql.query('UPDATE jumlah_pengunjung SET jumlah = jumlah + 1'); // update nilai jumlah pengunjung +1
+            console.log("Tambah pengunjung satu");
             console.log('Pengunjung berikut masuk: ' + data);
             if(board.isReady){    sol.on(); }      //Buka tutup pintu
             console.log("buka pintu");
@@ -145,7 +148,7 @@ myPort.on('data', function(data) {
             }, 5000);                              //==========
             con_mysql.query('SELECT jumlah FROM jumlah_pengunjung', function(err,jum){
               console.log(jum[0].jumlah);
-
+              
               if(jum[0].jumlah == 0){
                 if(board.isReady){
                   led1.off();
