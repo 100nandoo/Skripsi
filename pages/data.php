@@ -45,16 +45,22 @@ $(document).ready(function() {
 
 
     <?php $row = mysqli_fetch_array($jumlah_pengunjung) ?>
-    <h4>Jumlah pengunjung: <?php echo $row['jumlah'] ?></h4>
+    <h4>Pengunjung saat ini: <?php echo $row['jumlah'] ?> orang</h4>
     <br>
-    <form action="delVisitor.php" class="form-signin" method="post">
-      <h3 class="form-signin-heading text-center">Hapus Pengunjung Terdaftar</h3><hr>
-      <div class="col-sm-8">
-        <input type="text" name="nama" id="nama" class="form-control form-group" placeholder="username" required autofocus>
-      </div>
-      <div class="col-sm-4">
-        <button class="btn btn-lg btn-danger btn-block btn-sm" type="submit">Delete</button>
-      </div>
+    <div>
+      <h3 class="text-center">Ubah Data Pengunjung</h3><hr>
+      <form action="delVisitor.php" class="form-inline form-group" method="post">
+          <input type="text" name="nama" class="form-control" id="nama" placeholder="nama" required autofocus>
+          <button class="btn btn-lg btn-danger btn-sm" type="submit">Hapus</button>
+      </form>
+    </div>
+    <form action="ubahPriv.php" class="form-inline form-group" method="post">
+        <input type="text" name="nama" id="nama" class="form-control" placeholder="nama" required autofocus>
+        <strong class="text-center control-label">Privilege:</strong>
+        <input type="radio" name="priv" value="1"> 1
+        <input type="radio" name="priv" value="2"> 2
+        <input type="radio" name="priv" value="3"> 3
+        <button class="btn btn-lg btn-primary btn-sm" type="submit">Ubah</button>
     </form>
   </div>
   <!-- Kolom Kanan -->
