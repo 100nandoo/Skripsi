@@ -20,11 +20,9 @@ socket.on('EventKirim', function(data){
 			<input type="text" name="uid" id="uid" class="form-control form-group" placeholder="uid" required data-toggle="tooltip" data-placement="right" title="Tooltip on bottom">
 			<div class="form-inline form-group">
 				<strong class="col-sm-3 control-label">Privilege </strong>
-				<select id="privilege" class="col-sm-9 form-control" >
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-				</select>
+				<input type="radio" name="priv" value="1">Radio 1
+			    <input type="radio" name="priv" value="2">Radio 2
+			    <input type="radio" name="priv" value="3">Radio 3
 			</div>
 
 			<button class="btn btn-lg btn-primary btn-block form-group" type="submit">Submit</button>

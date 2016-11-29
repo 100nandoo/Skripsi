@@ -9,8 +9,9 @@ echo "Connected successfully|";
 
 $nama=$_POST['nama'];
 $uid=$_POST['uid'];
+$privilege = $_POST['priv'];
 
-$sql = "INSERT INTO pengunjung (nama, uid) VALUES ('$nama', '$uid')";
+$sql = "INSERT INTO pengunjung (nama, uid, privilege) VALUES ('$nama', '$uid', '$privilege')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
