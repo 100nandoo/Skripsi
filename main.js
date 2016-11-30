@@ -88,13 +88,24 @@ myPort.on('data', function(data) {
       //cek status
       con_mysql.query('SELECT * FROM pengunjung WHERE UID = ?', [data], function(err, stat){
         //jika pengunjung tidak berada di ruangan, status bernilai 0
+
         if(stat[0].status == 0){
+          con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]); //tulis uid dan waktu masuk
+          con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]); //update nilai status menjadi 1
+          con_mysql.query('UPDATE jumlah_pengunjung SET jumlah = jumlah + 1'); // update nilai jumlah pengunjung +1
+          console.log('Pengunjung berikut masuk: ' + data);
+
+          //pengecekan jumlah pengunjung
+          con_mysql.query('SELECT jumlah FROM jumlah_pengunjung', function(err,jum){
+            if(jum[0].jumlah >= 2){
+              if(board.isReady){
+                console.log("AC 2 nyala");
+                ac2.on();
+              }
+            }
+          });
+
           if(stat[0].privilege == 3 || stat[0].privilege == 2){
-            con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]); //tulis uid dan waktu masuk
-            con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]); //update nilai status menjadi 1
-            con_mysql.query('UPDATE jumlah_pengunjung SET jumlah = jumlah + 1'); // update nilai jumlah pengunjung +1
-            console.log("Tambah pengunjung satu");
-            console.log('Pengunjung berikut masuk: ' + data);
 
             if(board.isReady){    sol.on(); }      //Buka tutup pintu
             console.log("buka pintu");
@@ -115,11 +126,7 @@ myPort.on('data', function(data) {
           }
           else if(JamSkrg >= 7 && JamSkrg < 16){ //Cek jam operasional
             console.log("jam operasional.");
-            con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]); //tulis uid dan waktu masuk
-            con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]); //update nilai status menjadi 1
-            con_mysql.query('UPDATE jumlah_pengunjung SET jumlah = jumlah + 1'); // update nilai jumlah pengunjung +1
-            console.log("Tambah pengunjung satu");
-            console.log('Pengunjung berikut masuk: ' + data);
+
             if(board.isReady){    sol.on(); }      //Buka tutup pintu
             console.log("buka pintu");
             setTimeout(function() {
@@ -148,7 +155,6 @@ myPort.on('data', function(data) {
             }, 5000);                              //==========
             con_mysql.query('SELECT jumlah FROM jumlah_pengunjung', function(err,jum){
               console.log(jum[0].jumlah);
-              
               if(jum[0].jumlah == 0){
                 if(board.isReady){
                   led1.off();
@@ -159,6 +165,12 @@ myPort.on('data', function(data) {
                   led6.off();
                   ac1.off();
                   ac2.off();
+                }
+              }
+              else if (jum[0].jumlah < 2) {
+                if(board.isReady){
+                  ac2.off();
+                  console.log("AC 2 mati");
                 }
               }
             });
