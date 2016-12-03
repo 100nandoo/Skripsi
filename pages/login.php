@@ -1,6 +1,6 @@
 <?php
 mysql_connect("localhost", "root", "");
-mysql_select_db("skripsi");
+mysql_select_db("weblogin");
 
 session_start();
 if(!empty($_POST['username']) && !empty($_POST['password'])){
