@@ -1,3 +1,5 @@
+<?php require('connect.php'); ?>
+
 <!-- stylesheet-->
 <link rel="stylesheet" href="../css/bootstrap.css" />
 <link rel="stylesheet" href="../css/dataTables.bootstrap.css" />

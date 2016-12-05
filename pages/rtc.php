@@ -1,3 +1,5 @@
+<?php require('connect.php'); ?>
+
 <script>
 var socket = io.connect('http://localhost:8000');
 
