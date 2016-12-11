@@ -36,7 +36,7 @@ var con_mysql = mysql.createConnection({
   host    : 'localhost',
   user    : 'root',
   password: '',
-  database: 'weblogin'
+  database: 'skripsi'
 });
 
 con_mysql.connect(function(err){
