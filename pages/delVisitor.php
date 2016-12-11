@@ -12,8 +12,8 @@ $nama=$_POST['nama'];
 $sql = "DELETE FROM pengunjung WHERE nama = '$nama'";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-    header('Location: dashboard.php#/addVisitorForm');
+    echo "New record deleted successfully";
+    header('Location: dashboard.php#/data');
 
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
