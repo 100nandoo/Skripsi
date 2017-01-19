@@ -15,7 +15,7 @@ socket.on('EventKirim', function(data){
 	<div class="col-sm-4"></div>
 	<div class="col-sm-4">
 		<form action="addVisitor.php" class="form-signin form-horizontal" method="post">
-			<h2 class="form-signin-heading text-center">Add New Visitor</h2><hr>
+			<h2 class="form-signin-heading text-center">Tambah Pengunjung</h2><hr>
 			<input type="text" name="nama" id="nama" class="form-control form-group" placeholder="username" required autofocus>
 			<input type="text" name="uid" id="uid" class="form-control form-group" placeholder="uid" required data-toggle="tooltip" data-placement="right" title="Tooltip on bottom">
 			<div class="form-inline form-group">

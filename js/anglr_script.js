@@ -16,6 +16,10 @@ labApp.config(function($routeProvider) {
   .when('/addVisitor', {
     templateUrl : '../pages/addVisitorForm.php',
   })
+  //route untuk tambah pengunjung
+  .when('/addUser', {
+    templateUrl : '../pages/addUserForm.php',
+  })
   // route untuk home
   .when('/home', {
     templateUrl : '../pages/home.php',

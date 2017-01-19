@@ -8,10 +8,9 @@ if ($conn->connect_error) {
 echo "Connected successfully|";
 
 $nama=$_POST['nama'];
-$uid=$_POST['uid'];
-$privilege = $_POST['priv'];
-
-$sql = "INSERT INTO pengunjung (nama, uid, privilege) VALUES ('$nama', '$uid', '$privilege')";
+$password=$_POST['password'];
+$hashed_password = md5($password);
+$sql = "INSERT INTO logintable (user, pass) VALUES ('$nama', '$hashed_password')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

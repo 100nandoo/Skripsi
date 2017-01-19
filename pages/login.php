@@ -5,7 +5,8 @@ mysql_select_db("skripsi");
 session_start();
 if(!empty($_POST['username']) && !empty($_POST['password'])){
   $username=$_POST['username'];
-  $password=$_POST['password'];
+  $unhashed_password = $_POST['password'];
+  $password=md5($unhashed_password);
   //echo "user=" . $username . " pass" . $password . "\n";
   $sql="SELECT * FROM logintable WHERE user='$username' and pass='$password'";
   $result=mysql_query($sql);
@@ -17,7 +18,7 @@ if(!empty($_POST['username']) && !empty($_POST['password'])){
     // Register $myusername, $mypassword and redirect to file "login_success.php"
     //$_SESSION["username"];
     $_SESSION['username'] = $_POST['username'];
-    header('Location: dashboard.php');
+    header('Location: dashboard.php#/home');
     exit;
   }
   else {
