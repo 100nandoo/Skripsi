@@ -90,10 +90,7 @@ myPort.on('data', function(data) {
         //jika pengunjung tidak berada di ruangan, status bernilai 0
 
         if(stat[0].status == 0){
-          con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]); //tulis uid dan waktu masuk
-          con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]); //update nilai status menjadi 1
-          con_mysql.query('UPDATE jumlah_pengunjung SET jumlah = jumlah + 1'); // update nilai jumlah pengunjung +1
-          console.log('Pengunjung berikut masuk: ' + data);
+
 
           //pengecekan jumlah pengunjung
           con_mysql.query('SELECT jumlah FROM jumlah_pengunjung', function(err,jum){
@@ -106,6 +103,10 @@ myPort.on('data', function(data) {
           });
 
           if(stat[0].privilege == 3 || stat[0].privilege == 2){
+            con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]); //tulis uid dan waktu masuk
+            con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]); //update nilai status menjadi 1
+            con_mysql.query('UPDATE jumlah_pengunjung SET jumlah = jumlah + 1'); // update nilai jumlah pengunjung +1
+            console.log('Pengunjung berikut masuk: ' + data);
 
             if(board.isReady){    sol.on(); }      //Buka tutup pintu
             console.log("buka pintu");
@@ -126,6 +127,10 @@ myPort.on('data', function(data) {
           }
           else if(JamSkrg >= 7 && JamSkrg < 16){ //Cek jam operasional
             console.log("jam operasional.");
+            con_mysql.query('INSERT INTO buku_tamu SET uid = ?, masuk = now()', [data]); //tulis uid dan waktu masuk
+            con_mysql.query('UPDATE pengunjung SET status = 1 WHERE uid = ?',[data]); //update nilai status menjadi 1
+            con_mysql.query('UPDATE jumlah_pengunjung SET jumlah = jumlah + 1'); // update nilai jumlah pengunjung +1
+            console.log('Pengunjung berikut masuk: ' + data);
 
             if(board.isReady){    sol.on(); }      //Buka tutup pintu
             console.log("buka pintu");
