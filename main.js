@@ -3,7 +3,7 @@ var app = require('http').createServer(handler);
 var io = require('socket.io').listen(app);
 var mysql = require('mysql');
 var CronJob = require('cron').CronJob;
-var led1,led2,led3,led4,led5,led6,sol;
+var lampu,sol;
 var five = require("johnny-five");
 var board = new five.Board({
   port:process.argv[2]
@@ -20,12 +20,7 @@ new CronJob('*/10 * * * * *', function() {
 board.on("ready", function() {
   console.log("Berhasil terhubung ke Arduino yang berisi Firmata!");
 
-  led1 = new five.Led(2);
-  led2 = new five.Led(3);
-  led3 = new five.Led(4);
-  led4 = new five.Led(5);
-  led5 = new five.Led(6);
-  led6 = new five.Led(7);
+  lampu = new five.Led(2);
   sol = new five.Relay(9);
   ac1 = new five.Relay(10);
   ac2 = new five.Relay(11);
@@ -115,12 +110,7 @@ myPort.on('data', function(data) {
               if(board.isReady){    sol.off(); }
             }, 5000);                              //==========
             if(board.isReady){
-              led1.on();
-              led2.on();
-              led3.on();
-              led4.on();
-              led5.on();
-              led6.on();
+              lampu.on();
               ac1.on();
             }
 
@@ -162,12 +152,7 @@ myPort.on('data', function(data) {
               console.log(jum[0].jumlah);
               if(jum[0].jumlah == 0){
                 if(board.isReady){
-                  led1.off();
-                  led2.off();
-                  led3.off();
-                  led4.off();
-                  led5.off();
-                  led6.off();
+                  lampu.off();
                   ac1.off();
                   ac2.off();
                 }
@@ -218,53 +203,9 @@ io.on('connection', function(socket) {
   });
 
   //ketika socket io menerima string, lalu menyalakan led
-  socket.on('led1', function () {
-    console.log("toggle LED1");
-    if(board.isReady){    led1.toggle(); }
-  });
-  socket.on('led2', function () {
-    console.log("toggle LED2");
-    if(board.isReady){    led2.toggle(); }
-  });
-  socket.on('led3', function () {
-    console.log("toggle LED3");
-    if(board.isReady){    led3.toggle(); }
-  });
-  socket.on('led4', function () {
-    console.log("toggle LED4");
-    if(board.isReady){    led4.toggle(); }
-  });
-  socket.on('led5', function () {
-    console.log("toggle LED5");
-    if(board.isReady){    led5.toggle(); }
-  });
-  socket.on('led6', function () {
-    console.log("toggle LED6");
-    if(board.isReady){    led6.toggle(); }
-  });
-  socket.on('led12', function () {
-    console.log("toggle Baris 1");
-    if(board.isReady){    led1.toggle(); }
-    if(board.isReady){    led2.toggle(); }
-  });
-  socket.on('led34', function () {
-    console.log("toggle Baris 2");
-    if(board.isReady){    led3.toggle(); }
-    if(board.isReady){    led4.toggle(); }
-  });
-  socket.on('led56', function () {
-    console.log("toggle Baris 3");
-    if(board.isReady){    led5.toggle(); }
-    if(board.isReady){    led6.toggle(); }
-  });
-  socket.on('ledAll', function () {
-    console.log("toggle Semua LED");
-    if(board.isReady){    led1.toggle(); }
-    if(board.isReady){    led2.toggle(); }
-    if(board.isReady){    led3.toggle(); }
-    if(board.isReady){    led4.toggle(); }
-    if(board.isReady){    led5.toggle(); }
-    if(board.isReady){    led6.toggle(); }
+  socket.on('lampu', function () {
+    console.log("toggle lampu");
+    if(board.isReady){    lampu.toggle(); }
   });
   socket.on('sol', function () {
     console.log("toggle Solenoid");
