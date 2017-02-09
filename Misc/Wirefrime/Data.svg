@@ -62,16 +62,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="584.45927"
-     inkscape:cy="305.39989"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="378.08847"
+     inkscape:cy="127.7832"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="1366"
      inkscape:window-height="705"
-     inkscape:window-x="-8"
+     inkscape:window-x="1358"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -82,7 +82,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -223,7 +223,7 @@
              width="149.59349"
              id="rect5686-7" /></flowRegion><flowPara
            style="font-size:26.66666794px;fill:#ffffff;fill-opacity:1"
-           id="flowPara5688-4">tombol</flowPara></flowRoot>    </g>
+           id="flowPara5688-4">hapus</flowPara></flowRoot>    </g>
     <g
        id="g7073">
       <rect
@@ -247,7 +247,7 @@
              width="271.92935"
              id="rect7064" /></flowRegion><flowPara
            style="font-size:26.66666794px;text-align:center;text-anchor:middle"
-           id="flowPara7066">Input Box</flowPara></flowRoot>    </g>
+           id="flowPara7066">nama</flowPara></flowRoot>    </g>
     <g
        transform="translate(-0.34766276,16.405772)"
        id="g7073-3">
@@ -272,10 +272,10 @@
              width="271.92935"
              id="rect7064-2" /></flowRegion><flowPara
            style="font-size:26.66666794px;text-align:center;text-anchor:middle"
-           id="flowPara7066-4">Input Box</flowPara></flowRoot>    </g>
+           id="flowPara7066-4">nama</flowPara></flowRoot>    </g>
     <g
        id="g7175"
-       transform="translate(0,-1.3363476)">
+       transform="matrix(0.86159125,0,0,1,57.554088,-0.80180858)">
       <rect
          ry="3.0500853"
          y="266.05579"
@@ -296,6 +296,68 @@
              width="149.59349"
              id="rect5686-7-4" /></flowRegion><flowPara
            style="font-size:26.66666794px;fill:#ffffff;fill-opacity:1"
-           id="flowPara5688-4-0">tombol</flowPara></flowRoot>    </g>
+           id="flowPara5688-4-0">ubah</flowPara></flowRoot>    </g>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4559-2"
+       width="92.926826"
+       height="12.04607"
+       x="187.79135"
+       y="260.21463"
+       ry="4.8367157" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="87.931671"
+       y="271.87665"
+       id="text4579"><tspan
+         sodipodi:role="line"
+         id="tspan4577"
+         x="87.931671"
+         y="271.87665"
+         style="font-size:5.64444447px;stroke-width:0.26458332">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458349px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="100.75461"
+       y="272.06454"
+       id="text4579-8"><tspan
+         sodipodi:role="line"
+         id="tspan4577-0"
+         x="100.75461"
+         y="272.06454"
+         style="font-size:5.64444447px;stroke-width:0.26458332">2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458349px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="115.18716"
+       y="271.7973"
+       id="text4579-5"><tspan
+         sodipodi:role="line"
+         id="tspan4577-8"
+         x="115.18716"
+         y="271.7973"
+         style="font-size:5.64444447px;stroke-width:0.26458332">3</tspan></text>
+    <ellipse
+       style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4607"
+       cx="95.682487"
+       cy="270.27304"
+       rx="2.4054255"
+       ry="2.6726952" />
+    <ellipse
+       style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4607-9"
+       cx="124.81486"
+       cy="270.00574"
+       rx="2.4054255"
+       ry="2.6726952" />
+    <ellipse
+       style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4607-5"
+       cx="109.31324"
+       cy="269.73849"
+       rx="2.4054255"
+       ry="2.6726952" />
   </g>
 </svg>
