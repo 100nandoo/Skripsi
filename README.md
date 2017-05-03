@@ -1,6 +1,6 @@
 # My Project
 
-This is my project for my final thesis. It's a system for monitoring visitor and also control lock door, lights, air conditioner of a laboratorium. This is just a prototype, so I didn't use real air conditioner and lights. Instead I used LED, and relay for simulation.
+This is my project for my final thesis. It's a system for monitoring visitor and also control lock door, lights, air conditioner of a laboratorium.
 
 ## Getting Started
 
