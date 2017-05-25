@@ -1,5 +1,5 @@
 # Smart Laboratorium Control System
-This is my project for my final thesis. It's a system for monitoring visitor and also control lock door, lights, air conditioner of a laboratorium.
+This is my project for my final thesis. It's a system for monitoring visitor and also control lock door, lights, air conditioner of a laboratorium using Node.js, Arduino Uno, and full stack website.
 
 ## Architecture
 ### Hardware
